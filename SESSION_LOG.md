@@ -74,7 +74,7 @@ Ein Reiter ohne Treffer verschwindet komplett aus der Navigation. Kacheltypen: `
 
 **Denis:** „der hauptadmin soll administrator@dihag.com sein!"
 
-- `js/config.js`: `bootstrapAdmins: ["fedorov@dihag.com"]` → `hauptAdmins: ["administrator@dihag.com"]`
+- `js/config.js`: `bootstrapAdmins: ["vorname.nachname@dihag.com"]` → `hauptAdmins: ["administrator@dihag.com"]`
   (umbenannt, weil es kein Notnagel mehr ist, sondern die feste Haupt-Administration).
 - `js/data.js`: neue Hilfsfunktion `isHauptAdmin(mail)` (case-insensitiv, tolerant gegen
   fehlendes Feld), von `loadRole()` genutzt und nach außen exportiert.
@@ -92,7 +92,7 @@ Ein Reiter ohne Treffer verschwindet komplett aus der Navigation. Kacheltypen: `
 **Verifikation:** `node --check` 7/7. Browser (Stubs): 8 Prüfungen grün – Haupt-Admin greift,
 `isHauptAdmin` ignoriert Groß-/Kleinschreibung und lehnt fremde Konten ab, Karte
 „Haupt-Administration" wird mit Quelle `config.js` gerendert. Weitere 4 Prüfungen mit einem
-zweiten Konto (`fedorov@dihag.com`, kein Listeneintrag): bekommt `viewer`, sieht weder
+zweiten Konto (`vorname.nachname@dihag.com`, kein Listeneintrag): bekommt `viewer`, sieht weder
 Einstellungen noch Führungskräfte-Reiter, und wird über einen `AppPermissions`-Eintrag korrekt
 auf `editor` gehoben. Konsole fehlerfrei.
 
@@ -516,7 +516,7 @@ Konsole fehlerfrei.
 ## 2026-07-28 (11): Rolle blieb nach Vergabe auf „viewer“
 
 **Denis:** Profil zeigt `viewer`, obwohl in Berechtigungen ein Eintrag
-`fedorov@dihag.com / rundumdenjob / editor` steht – „warum?“
+`vorname.nachname@dihag.com / rundumdenjob / editor` steht – „warum?“
 
 **Ursache (im Code verifiziert):** `loadRole()` wird ausschließlich aus `loadUser()` beim
 Anmelden aufgerufen; danach berührt nichts mehr `ctx.role`. Ein Eintrag, der nach der
@@ -579,7 +579,7 @@ Profilkarte: im Fehlerfall Klasse `err` (rot) mit der Graph-Meldung, nach Klick 
 Konsole fehlerfrei.
 
 **Offen:** Welcher der fünf Fälle bei Denis zutrifft, zeigt die Zeile in der Profilkarte nach
-dem nächsten Laden. Wahrscheinlichster Kandidat ist (d)/(e): `fedorov@dihag.com` hat
+dem nächsten Laden. Wahrscheinlichster Kandidat ist (d)/(e): `vorname.nachname@dihag.com` hat
 möglicherweise keinen Lesezugriff auf `/sites/ticket`, wo `AppPermissions` liegt.
 
 ## 2026-07-28 (13): Rechteliste auf /sites/IT umgestellt

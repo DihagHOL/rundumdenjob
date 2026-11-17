@@ -114,7 +114,7 @@ Alle übrigen Mitarbeitenden brauchen keinen Eintrag.
 
 | Spaltenname | Typ in SharePoint | Pflicht | Hinweis |
 |---|---|---|---|
-| `UserEmail` | Einzelne Textzeile | **ja** | Anmeldeadresse, klein geschrieben, z. B. `fedorov@dihag.com`. Danach wird abgeglichen |
+| `UserEmail` | Einzelne Textzeile | **ja** | Anmeldeadresse, klein geschrieben, z. B. `vorname.nachname@dihag.com`. Danach wird abgeglichen |
 | `App` | Einzelne Textzeile | **ja** | App-Schlüssel, z. B. `rundumdenjob`. `*` gilt für alle Apps |
 | `Role` | Einzelne Textzeile | **ja** | `admin`, `editor`, `viewer` oder `none` |
 | `UserDisplayName` | Einzelne Textzeile | nein | Klarname, nur zur Anzeige im Admin-Portal |
@@ -138,7 +138,7 @@ Beispielzeile:
 
 | Title | UserEmail | App | Role |
 |---|---|---|---|
-| fedorov@dihag.com | fedorov@dihag.com | rundumdenjob | admin |
+| vorname.nachname@dihag.com | vorname.nachname@dihag.com | rundumdenjob | admin |
 
 ---
 
