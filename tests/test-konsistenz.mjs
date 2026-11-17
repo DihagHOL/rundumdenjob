@@ -94,7 +94,8 @@ const dateien = readdirSync(new URL("js/", wurzel)).filter(f => f.endsWith(".js"
 for (const f of dateien) {
   check(`index.html lädt js/${f}`, html.includes(`js/${f}`));
 }
-const geladen = [...html.matchAll(/src="js\/([^"]+)"/g)].map(m => m[1]);
+// Ohne den Versionsparameter ?v=, den der Veröffentlichungslauf setzt.
+const geladen = [...html.matchAll(/src="js\/([^"?]+)(?:\?[^"]*)?"/g)].map(m => m[1]);
 for (const g of geladen) {
   check(`js/${g} existiert wirklich`, dateien.includes(g));
 }
